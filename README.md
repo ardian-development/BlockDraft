@@ -1,6 +1,42 @@
 # BlockDraft
 
-BlockDraft is an independent, AI-assisted Minecraft structure SaaS. Primary domain: `blockdraft.com`. The repository folder remains `2026-07-VoxelBlueprint` for continuity. The product UI and public content are English-first. This project must not copy BlockArchitect code, branding, UI text, prompts, gallery data or private APIs.
+BlockDraft is an independent, AI-assisted Minecraft build studio. Describe an idea in plain language, inspect the resulting structure in an interactive 3D preview, refine it, and export a safe Minecraft Java Edition `.mcfunction` file.
+
+The project is designed around a practical principle: AI proposes a compact, structured plan, while deterministic application code validates and compiles the final voxel model. That keeps the export predictable, testable and safe to run in a Minecraft world.
+
+> BlockDraft is an original project. It does not copy another product's code, branding, UI text, prompts, gallery data or private APIs.
+
+## What it does
+
+- turns a natural-language description into a build concept, such as a house, vehicle, creature or decorative object;
+- generates a structured scene/part plan with an AI provider;
+- compiles the plan into a validated voxel specification with explicit size and block-count limits;
+- previews the build in the browser using Three.js;
+- exports a relative Java Edition `.mcfunction` file for use in a chosen Minecraft version.
+
+## How the generation pipeline works
+
+```text
+Prompt + optional image reference
+              │
+              ▼
+AI scene / part plan (structured JSON)
+              │
+              ▼
+Schema validation + semantic checks
+              │
+              ▼
+Deterministic voxel compiler
+              │
+              ├── Three.js preview
+              └── Minecraft Java .mcfunction export
+```
+
+AI-provider credentials are intentionally server-side only. The repository contains configuration examples and documentation, never real keys.
+
+## Current scope
+
+The repository contains an actively evolving local MVP and the accompanying product, architecture and implementation documentation. The public roadmap below describes the intended production architecture; individual modules are introduced incrementally as the project matures.
 
 ## Product promise
 
